@@ -13,7 +13,6 @@ This sample leverages a startup script as the entrypoint. This script allows us 
 SSH Reference: https://docs.microsoft.com/bs-latn-ba/Azure/app-service/containers/configure-custom-container#enable-ssh
 
 ## Test Locally | localhost:5000
-🏗 
 ```
 $ git clone https://github.com/Kendubu1/dotnet-container-ssh-azure.git
 $ cd dotnet-container-ssh-azure
@@ -36,14 +35,14 @@ $ docker tag dotnet-ssh Azure/dotnet-ssh
 $ docker push Azure/dotnet-ssh
 ```
 
-## Building off the Image with new code
+## Building off the image repo with new code
 1. Remove all files but the Dockerfile, start.sh & sshd_config.
 2. Copy your .NET Core 5 project files into /dotnet-container-ssh-azure
-3. Test & publish the project
+3. Test & publish the project. Docker will run the published version of the app as a best practice.
 ```
 $ dotnet publish -c Release
 ```
-4. Update the start.sh with your .dll name. (Shown when running dotnet publish)
+4. Update the start.sh with the new .dll name. (Shown when running dotnet publish)
 5. Build & test locally then push to your registry  
 ```
 $ docker build -t dotnet-ssh .
