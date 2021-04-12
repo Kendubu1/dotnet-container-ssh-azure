@@ -44,11 +44,9 @@ $ docker push Azure/dotnet-ssh
 $ dotnet publish -c Release
 ```
 4. Update the start.sh with your .dll name. (Shown when running dotnet publish)
-```
-$ docker build -t dotnet-ssh .
-```
 5. Build & test locally then push to your registry  
 ```
+$ docker build -t dotnet-ssh .
 $ docker push Azure/dotnet-ssh
 ```
 
