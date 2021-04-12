@@ -1,0 +1,7 @@
+C:\_Code\dotnet\howdy\bin\Release\net5.0\publish\howdy.exe
+C:\_Code\dotnet\howdy\bin\Release\net5.0\publish\appsettings.Development.json
+C:\_Code\dotnet\howdy\bin\Release\net5.0\publish\appsettings.json
+C:\_Code\dotnet\howdy\bin\Release\net5.0\publish\howdy.dll
+C:\_Code\dotnet\howdy\bin\Release\net5.0\publish\howdy.deps.json
+C:\_Code\dotnet\howdy\bin\Release\net5.0\publish\howdy.runtimeconfig.json
+C:\_Code\dotnet\howdy\bin\Release\net5.0\publish\howdy.pdb
