@@ -11,6 +11,7 @@ This sample leverages a startup script as the entrypoint. This script allows us 
 
 
 SSH Reference: https://docs.microsoft.com/bs-latn-ba/Azure/app-service/containers/configure-custom-container#enable-ssh
+Configure Custom Containers: https://docs.microsoft.com/en-us/azure/app-service/configure-custom-container?pivots=container-linux
 
 ## Test Locally | localhost:5000
 ```
@@ -49,5 +50,3 @@ $ docker build -t dotnet-ssh .
 $ docker push Azure/dotnet-ssh
 ```
 
-## Update the container image tag
-https://docs.microsoft.com/en-us/azure/app-service/configure-custom-container?pivots=container-linux
