@@ -12,8 +12,18 @@ COPY start.sh /usr/local/bin/
 RUN chmod 755 /usr/local/bin/start.sh
 
 #Copy the published .NETCore 5 project files to "/AzureApp" 
-COPY bin/Release/net5.0/publish/ AzureApp/
+#COPY bin/Release/net5.0/publish/ AzureApp/
+#WORKDIR /AzureApp
+
+#Copy the published .NETCore 5 project files to "/AzureApp" 
+COPY Startup.cs AzureApp/
+COPY Program.cs AzureApp/
+COPY howdy.csproj AzureApp/
+COPY appsettings.json AzureApp/
+COPY appsettings.Development.json AzureApp/
+
 WORKDIR /AzureApp
+RUN dotnet publish -c Release
 
 #Create enviorment variable for our sshd_config
 ENV SSH_PORT 2222
