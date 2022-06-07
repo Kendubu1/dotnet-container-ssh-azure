@@ -11,4 +11,4 @@ echo "Starting SSH ..."
 service ssh start
 
 # From CMD in Dockerfile to start the app.
-dotnet howdy.dll
+dotnet /AzureApp/bin/Release/net5.0/howdy.dll
