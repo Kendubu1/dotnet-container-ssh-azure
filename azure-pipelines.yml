@@ -1,0 +1,44 @@
+# Docker
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '174ae8d4-f1b5-4280-8615-9f051b2ed89d'
+  imageRepository: 'kendubudotnetcontainersshazure'
+  containerRegistry: 'potat0.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+    - task: AzureWebAppContainer@1
+      inputs:
+        azureSubscription: 'Internal Potato Consumption(fbb69af7-f9a0-4e69-ba10-b4eb445e3963)'
+        appName: 'containerpenguin'
+        containers: $(imageRepository):$(tag)
