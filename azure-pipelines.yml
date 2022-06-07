@@ -41,4 +41,4 @@ stages:
       inputs:
         azureSubscription: 'Internal Potato Consumption(fbb69af7-f9a0-4e69-ba10-b4eb445e3963)'
         appName: 'containerpenguin'
-        containers: $(dockerRegistryServiceConnection)/$(imageRepository):$(tag)
+        containers: potat0.azurecr.io/$(imageRepository):$(tag)
