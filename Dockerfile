@@ -1,5 +1,5 @@
 #Base Debian Image
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
+FROM mcr.microsoft.com/dotnet/sdk:5.0
 
 #Install openssh-server w/ required credentials for Azure App Service
 RUN apt-get update \
