@@ -16,11 +16,11 @@ RUN chmod 755 /usr/local/bin/start.sh
 #WORKDIR /AzureApp
 
 #Copy the published .NETCore 5 project files to "/AzureApp" 
+ENV ASPNETCORE_URLS=http://+:80  
 COPY Startup.cs AzureApp/
 COPY Program.cs AzureApp/
 COPY howdy.csproj AzureApp/
 COPY appsettings.json AzureApp/
-COPY appsettings.Development.json AzureApp/
 
 WORKDIR /AzureApp
 RUN dotnet publish -c Release
