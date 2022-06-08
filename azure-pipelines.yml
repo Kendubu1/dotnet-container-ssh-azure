@@ -37,8 +37,3 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           latest
-    - task: AzureWebAppContainer@1
-      inputs:
-        azureSubscription: 'Internal Potato Consumption(fbb69af7-f9a0-4e69-ba10-b4eb445e3963)'
-        appName: 'containerpenguin'
-        containers: potat0.azurecr.io/$(imageRepository):latest
