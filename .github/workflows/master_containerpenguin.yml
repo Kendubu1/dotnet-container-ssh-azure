@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://potat0.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_015af8d820734aacac29442c8f6cc88e }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_a67f33b43eeb48d68d5daa45a9dd9f0d }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_5cd1cdccddc548e08f7ea2ee067a542d }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_70dd54c52e4e46399b5cb9117be6ff51 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: potat0.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_015af8d820734aacac29442c8f6cc88e }}/kendubudotnetcontainersshazure:${{ github.sha }}
+        tags: potat0.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_5cd1cdccddc548e08f7ea2ee067a542d }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'containerpenguin'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_268972bee1b040eba765e8f372ca23f3 }}
-        images: 'potat0.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_015af8d820734aacac29442c8f6cc88e }}/kendubudotnetcontainersshazure:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2a654d1769894dadb63ae15ef5ae4a59 }}
+        images: 'potat0.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_5cd1cdccddc548e08f7ea2ee067a542d }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}'
